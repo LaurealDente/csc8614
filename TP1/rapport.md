@@ -19,7 +19,7 @@ sklearn 1.8.0
 
 Le "Ġ" permet de remplacer l'espace dans le cas d'un tokenizer BPE. Cela permet ensuite de reformer les phrases complètes en ayant le fin et les débuts des mots.
 
-![alt text](image.png)
+![alt text](img/image.png)
 
 
 ### Question 2.b
@@ -49,7 +49,7 @@ Ce qui est intéressant est le fait que la conjugaison est aussi séparé du mot
 
 ### Question 2.d
 
-![alt text](image-1.png)
+![alt text](img/image-1.png)
 
 Pour ce mot, GPT2 génère 5 token (sans compter le .). 
 Ce mot est découpé comme ceci car : ant, arian et ism sont souvent utilisés dans la langue anglais et portent un sens, le ant peut par exemple signifier l'opposition.
@@ -60,14 +60,14 @@ idis serait simplement un complément qui permet de relier le reste.
 
 ### Question 3.a
 
-![alt text](image-2.png)
+![alt text](img/image-2.png)
 
 La shape est de 1024 par 768. 1024 est le nombre de token maximal possible et 768 est le nombre de chiffres, représentant un savoir, que nous pouvons stocker sur un seul token.
 Pour ce modèle de langage causal, n_positions signifie que nous avons une limite de token que nous pouvons envoyer au modèle. Si le nombre de token dépasse, le modèle perdra le fil du début de la conversation.
 
 ### Question 3.b
 
-![alt text](image-3.png)
+![alt text](img/image-3.png)
 
 On peut observer une ligne continue de points en courbe, il n'y a pas de saut de position. Par ailleurs les données ne sont pas regroupés en amas et la trajectoire de la courbe est claire. 
 
@@ -75,7 +75,7 @@ La PCA permet de réduire le nombre de dimension afin que les modèles puissent 
 
 ### Question 3.c
 
-![alt text](image-4.png)
+![alt text](img/image-4.png)
 
 On voit que le 0-200 forme plutôt une boucle alors que le 0-50 laissait présager d'une courbe assez linéaire. La structure reste tout de même complètement lisible et fait penser au début de la représentation du nombre d'or, ce qui est très beau. L'alignement reste continue et ne forme toujours pas d'amas.
 
@@ -85,7 +85,7 @@ Cela implique que la représentation n'est pas linéaire ce qui rend plus compli
 
 ### Question 4.a
 
-![alt text](image-5.png)
+![alt text](img/image-5.png)
 
 On peut observer qu'"Art" n'apparaît pas. Cette probabilité n'est pas calculé car celles-ci sont des probabilités conditionnelles, elles se basent sur les probababilités précédentes pour se calculer. On ne peut pas calculer la probabilité de la première. (P(t-1|t)).
 
@@ -94,13 +94,13 @@ On peut observer une très fabile probabilité de trouver ificial après Art ce 
 
 ### Question 4.b
 
-![alt text](image-6.png)
+![alt text](img/image-6.png)
 
 La perplexité provient de la somme des logarithmes des probabilités puis du calcul de la moyenne par mot. On obtient comme cela une mesure qui peut etre comparé à n'importe quelle chaîne de caractère. L'exponentielle permet de contrebalancer les logs et de rendre à la métrique un sens en terme d'unité.
 
 ### Question 4.c
 
-![alt text](image-7.png)
+![alt text](img/image-7.png)
 
 4595.889933131633 - 108.96068293473512 = 4486.9292502 
 
@@ -110,14 +110,14 @@ Fascinating après artificial a par exemple une probabilité très faible d'êtr
 
 ### Question 4.c
 
-![alt text](image-8.png)
+![alt text](img/image-8.png)
 
 383.04208933082975
 On observe que la perplexité est plus haute que la perplexité de la langue anglaise pour la même phrase. Cela peut être expliqué par le fait que GPT2 a été principalement entraîné dans la langue anglais ce qui lui permet de générer principalement de la langue anglaise. Cependant la perplexité reste bien inférieur à la perplexité de la deuxième phrase anglaise où les mots étaient mélangés ce qui indique que la phrase a plus de sens pour lui. Les tokens sont aussi découpés de manière distinctes selon les langues.
 
 ### Question 4.e
 
-![alt text](image-9.png)
+![alt text](img/image-9.png)
 
 ' a' 1.205e-01
 ' the' 5.254e-02
@@ -141,7 +141,7 @@ On le fixe pour avoir des résultats reproductibles. A chaque lancement le modè
 
 ### Question 5.b
 
-![alt text](image-10.png)
+![alt text](img/image-10.png)
 
 ```text 
 
@@ -207,6 +207,6 @@ Le beam se rapproche d'un modele sampling avec un température très faible il e
 
 ### Question 5.g
 
-![alt text](image-11.png)
+![alt text](img/image-11.png)
 
 Nous trouvons les mêmes phrases avec un plus grand temps de calcul au fur et à mesure de l'augmentation des beams. Cela est dû au fait que le modèle cherche les tokens les plus probables à chaque fois et trouve les mêmes. Il y aurait sûrement des différences sur un plus grand ensemble de tokens. La complexité augmente étant donné que nous calculons 5 probabilités d'ensemble de tokens complet puis 10 puis 20 afin de s'assurer d'obtenir la chaîne la plus probable.
