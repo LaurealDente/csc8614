@@ -1,0 +1,5 @@
+{"run_id": "d0a8da07-db51-4abb-8b17-151c5c7764ed", "ts": "2026-01-23T10:29:21.990497Z", "event": "node_start", "data": {"node": "classify_email", "email_id": "E010"}}
+{"run_id": "d0a8da07-db51-4abb-8b17-151c5c7764ed", "ts": "2026-01-23T10:30:24.560142Z", "event": "node_end", "data": {"node": "classify_email", "status": "ok", "decision": {"intent": "reply", "category": "other", "priority": 2, "risk_level": "low", "needs_retrieval": false, "retrieval_query": "", "rationale": "The email does not contain any specific keywords that require further retrieval."}}}
+{"run_id": "d0a8da07-db51-4abb-8b17-151c5c7764ed", "ts": "2026-01-23T10:30:24.562703Z", "event": "node_start", "data": {"node": "maybe_retrieve"}}
+{"run_id": "d0a8da07-db51-4abb-8b17-151c5c7764ed", "ts": "2026-01-23T10:30:24.562929Z", "event": "node_end", "data": {"node": "maybe_retrieve", "status": "skipped"}}
+{"run_id": "d0a8da07-db51-4abb-8b17-151c5c7764ed", "ts": "2026-01-23T10:30:24.564250Z", "event": "node_start", "data": {"node": "draft_reply"}}
