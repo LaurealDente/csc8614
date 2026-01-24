@@ -66,7 +66,10 @@ class AgentState(BaseModel):
     subject: str
     sender: str
     body: str
-    
+
+    final_text: str = ""
+    final_kind: str = ""
+
     evidence_ok: bool = False
     last_draft_had_valid_citations: bool = False
 

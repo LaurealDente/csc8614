@@ -1,9 +1,0 @@
-{"run_id": "59ea758d-8626-41fc-afc5-82e849b8ec3f", "ts": "2026-01-23T10:04:43.352938Z", "event": "node_start", "data": {"node": "classify_email", "email_id": "E09"}}
-{"run_id": "59ea758d-8626-41fc-afc5-82e849b8ec3f", "ts": "2026-01-23T10:10:56.245618Z", "event": "node_end", "data": {"node": "classify_email", "status": "ok", "decision": {"intent": "reply", "category": "other", "priority": 2, "risk_level": "low", "needs_retrieval": true, "retrieval_query": "printemps Inoui et Intercités", "rationale": "L'email contient des informations sur la vente de billets pour le printemps."}}}
-{"run_id": "59ea758d-8626-41fc-afc5-82e849b8ec3f", "ts": "2026-01-23T10:10:56.248476Z", "event": "node_start", "data": {"node": "maybe_retrieve"}}
-{"run_id": "59ea758d-8626-41fc-afc5-82e849b8ec3f", "ts": "2026-01-23T10:10:59.375605Z", "event": "tool_call", "data": {"tool": "rag_search", "args_hash": "20ed61d02161", "latency_ms": 3126, "status": "ok", "k": 2, "n_docs": 2}}
-{"run_id": "59ea758d-8626-41fc-afc5-82e849b8ec3f", "ts": "2026-01-23T10:10:59.376791Z", "event": "node_end", "data": {"node": "maybe_retrieve", "status": "ok", "n_docs": 2}}
-{"run_id": "59ea758d-8626-41fc-afc5-82e849b8ec3f", "ts": "2026-01-23T10:10:59.377472Z", "event": "node_start", "data": {"node": "draft_reply"}}
-{"run_id": "59ea758d-8626-41fc-afc5-82e849b8ec3f", "ts": "2026-01-23T10:19:29.494134Z", "event": "node_end", "data": {"node": "draft_reply", "status": "ok", "n_citations": 1}}
-{"run_id": "59ea758d-8626-41fc-afc5-82e849b8ec3f", "ts": "2026-01-23T10:19:29.495193Z", "event": "node_start", "data": {"node": "check_evidence"}}
-{"run_id": "59ea758d-8626-41fc-afc5-82e849b8ec3f", "ts": "2026-01-23T10:19:29.495365Z", "event": "node_end", "data": {"node": "check_evidence", "status": "ok", "evidence_ok": true, "last_draft_had_valid_citations": true, "retrieval_attempts": 1}}

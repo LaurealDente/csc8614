@@ -29,15 +29,17 @@ Contraintes:
 - retrieval_query : mots-clés courts si retrieval=true, sinon chaîne vide.
 - rationale: 1 phrase max.
 
+- needs_retrieval: Doit être TRUE si l'email pose une question sur une procédure, un règlement, une note, ou une inscription. Même si tu penses connaître la réponse, tu DOIS mettre TRUE pour vérifier dans les documents officiels.
+
 
 Retourne EXACTEMENT ce JSON (mêmes clés, les valeurs sont des exemples) :
 {{
-  "intent": "reply",
-  "category": "other",
-  "priority": 2,
-  "risk_level": "low",
-  "needs_retrieval": true,
-  "retrieval_query": "mots-clés du sujet",
-  "rationale": "Brève justification du choix."
+  "intent": "_______",
+  "category": "_______",
+  "priority": 5,
+  "risk_level": "high",
+  "needs_retrieval": _______,
+  "retrieval_query": "_______",
+  "rationale": "_______"
 }}
 """

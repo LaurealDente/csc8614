@@ -9,7 +9,7 @@ from TP5.agent.logger import log_event
 from TP5.agent.state import AgentState, EvidenceDoc
 
 PORT = "11434"
-LLM_MODEL = "mistral"
+LLM_MODEL = "qwen2.5:3b"
 
 
 def evidence_to_context(evidence: List[EvidenceDoc]) -> str:
@@ -42,7 +42,7 @@ CONTEXTE:
 Retourne UNIQUEMENT ce JSON (pas de Markdown):
 {{
   "reply_text": "...",
-  "citations": ["doc_1"]
+  "citations": ___
 }}
 """
 
@@ -60,6 +60,11 @@ def call_llm(prompt: str) -> str:
 
 def draft_reply(state: AgentState) -> AgentState:
     log_event(state.run_id, "node_start", {"node": "draft_reply"})
+    if not state.budget.can_step():
+        log_event(state.run_id, "node_end", {"node": "draft_reply", "status": "budget_exceeded"})
+        return state
+
+    state.budget.steps_used += 1
 
     if not state.evidence and state.decision.needs_retrieval:
         state.last_draft_had_valid_citations = False 
@@ -83,7 +88,7 @@ def draft_reply(state: AgentState) -> AgentState:
         return state
 
     valid_ids = {d.doc_id for d in state.evidence}
-    if (not citations or any(c not in valid_ids for c in citations)) and state.decision.need_retrievals :
+    if (not citations or any(c not in valid_ids for c in citations)) and state.decision.needs_retrieval :
         state.last_draft_had_valid_citations = False
         state.draft_v1 = safe_mode_reply(state, "invalid_citations")
         log_event(state.run_id, "node_end", {"node": "draft_reply", "status": "safe_mode", "reason": "invalid_citations"})

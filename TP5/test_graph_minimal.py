@@ -28,3 +28,8 @@ if __name__ == "__main__":
     print(out["actions"])   # TODO: afficher actions
     print("\n=== EVIDENCE ===")
     print(out["evidence"])
+    
+    print("\n=== FINAL ===")
+    print("kind =", out["final_kind"])
+    print( out["final_text"])
+    
